@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiMoon, FiSun, FiDownload } from "react-icons/fi";
 
-const links = ["About", "Skills", "Projects", "Experience"];
+const links = ["About", "Skills", "Services", "Projects", "Experience"];
 
 export default function Navbar({ dark, setDark, active, setActive }) {
   const [scrolled, setScrolled] = useState(false);
@@ -63,7 +63,7 @@ export default function Navbar({ dark, setDark, active, setActive }) {
                 {isActive && (
                   <motion.span
                     layoutId="activeTab"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-sky-400"
                     style={{ zIndex: -1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
@@ -72,7 +72,7 @@ export default function Navbar({ dark, setDark, active, setActive }) {
                 {/* Hover underline */}
                 {!isActive && (
                   <motion.span
-                    className="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400"
+                    className="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-sky-400"
                     initial={{ width: 0 }}
                     whileHover={{ width: "60%" }}
                     transition={{ duration: 0.2 }}
@@ -84,15 +84,15 @@ export default function Navbar({ dark, setDark, active, setActive }) {
 
           {/* Resume */}
           <motion.a
-            href="/Sandhya_Resume.pdf"
-            download
+            href="/Sandhy_Resume.pdf"
+            download="Sandhya_Resume.pdf"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-            whileHover={{ y: -3, scale: 1.05, boxShadow: "0 8px 20px rgba(108,99,255,0.3)" }}
+            whileHover={{ y: -3, scale: 1.05, boxShadow: "0 8px 20px rgba(41,121,255,0.3)" }}
             whileTap={{ scale: 0.95 }}
             className="ml-2 flex items-center gap-1.5 px-4 py-2 rounded-full glass nav-link border text-sm font-semibold"
-            style={{ borderColor: "rgba(109,99,255,0.3)" }}
+            style={{ borderColor: "rgba(41,121,255,0.3)" }}
           >
             <motion.span
               animate={{ y: [0, -2, 0] }}
@@ -180,7 +180,7 @@ export default function Navbar({ dark, setDark, active, setActive }) {
                     transition={{ delay: i * 0.06 }}
                     whileHover={{ x: 6 }}
                     className={`text-left px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-                      isActive ? "bg-gradient-to-r from-purple-600 to-cyan-500 text-white" : "nav-link"
+                      isActive ? "bg-gradient-to-r from-blue-600 to-sky-400 text-white" : "nav-link"
                     }`}
                   >
                     {l}
@@ -188,13 +188,13 @@ export default function Navbar({ dark, setDark, active, setActive }) {
                 );
               })}
               <motion.a
-                href="/Sandhya_Resume.pdf"
-                download
+                href="/Sandhy_Resume.pdf"
+                download="Sandhya_Resume.pdf"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl glass nav-link border text-sm font-semibold"
-                style={{ borderColor: "rgba(109,99,255,0.3)" }}
+                style={{ borderColor: "rgba(41,121,255,0.3)" }}
               >
                 <FiDownload size={14} /> Download Resume
               </motion.a>

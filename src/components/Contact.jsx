@@ -2,10 +2,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { personal } from "../data/portfolio";
 import { FiMail, FiLinkedin, FiGithub, FiArrowUpRight } from "react-icons/fi";
+import { Float3D } from "./Mobile3D";
 
 const contacts = [
-  { icon: <FiMail size={24} />,    label: "Email",    value: personal.email,              href: `mailto:${personal.email}`, iconBg: "bg-purple-100 text-purple-600", glow: "rgba(139,92,246,0.4)" },
-  { icon: <FiLinkedin size={24} />,label: "LinkedIn", value: "linkedin.com/in/sandhya",   href: personal.linkedin,          iconBg: "bg-cyan-100 text-cyan-600",    glow: "rgba(6,182,212,0.4)" },
+  { icon: <FiMail size={24} />,    label: "Email",    value: personal.email,              href: `mailto:${personal.email}`, iconBg: "bg-blue-100 text-blue-600", glow: "rgba(41,121,255,0.4)" },
+  { icon: <FiLinkedin size={24} />,label: "LinkedIn", value: "linkedin.com/in/sandhya-dhanapal",   href: personal.linkedin,          iconBg: "bg-cyan-100 text-cyan-600",    glow: "rgba(6,182,212,0.4)" },
   { icon: <FiGithub size={24} />,  label: "GitHub",   value: "github.com/sandhya0430",    href: personal.github,            iconBg: "bg-pink-100 text-pink-600",    glow: "rgba(236,72,153,0.4)" },
 ];
 
@@ -22,7 +23,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="text-purple-500 text-sm font-semibold uppercase tracking-widest mb-2">Get In Touch</p>
+          <p className="text-blue-500 text-sm font-semibold uppercase tracking-widest mb-2">Get In Touch</p>
           <h2 className="text-3xl md:text-4xl font-bold t-heading mb-4">Let's Work Together</h2>
           <p className="t-sub text-base max-w-lg mx-auto">
             Open to full-time roles, freelance projects, and interesting collaborations.
@@ -31,7 +32,8 @@ export default function Contact() {
 
         <div className="grid sm:grid-cols-3 gap-5" style={{ perspective: "800px" }}>
           {contacts.map(({ icon, label, value, href, iconBg, glow }, i) => (
-            <motion.a
+            <Float3D key={label} delay={i * 0.3} intensity={0.6}>
+              <motion.a
               key={label}
               href={href}
               target="_blank"
@@ -58,8 +60,9 @@ export default function Contact() {
               </motion.div>
               <p className="t-muted text-xs uppercase tracking-wider">{label}</p>
               <p className="t-sub text-sm font-medium break-all">{value}</p>
-              <FiArrowUpRight size={14} className="t-muted group-hover:text-purple-500 transition-colors" />
+              <FiArrowUpRight size={14} className="t-muted group-hover:text-blue-500 transition-colors" />
             </motion.a>
+            </Float3D>
           ))}
         </div>
 
@@ -71,9 +74,9 @@ export default function Contact() {
         >
           <motion.a
             href={`mailto:${personal.email}`}
-            whileHover={{ scale: 1.06, boxShadow: "0 0 30px rgba(108,99,255,0.5)" }}
+            whileHover={{ scale: 1.06, boxShadow: "0 0 30px rgba(41,121,255,0.5)" }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold hover:opacity-90 transition-opacity shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-sky-400 text-white font-semibold hover:opacity-90 transition-opacity shadow-lg"
           >
             <FiMail size={16} /> Say Hello
           </motion.a>

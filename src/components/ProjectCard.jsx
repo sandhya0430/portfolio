@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const typeStyles = {
   work:     { label: "Work",     cls: "bg-cyan-600 text-white" },
-  personal: { label: "Personal", cls: "bg-purple-600 text-white" },
+  personal: { label: "Personal", cls: "bg-blue-600 text-white" },
 };
 
 function Card3D({ children }) {
@@ -21,13 +21,23 @@ function Card3D({ children }) {
     y.set((e.clientY - rect.top) / rect.height - 0.5);
   };
 
+  const handleTouch = (e) => {
+    const touch = e.touches[0];
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect || !touch) return;
+    x.set((touch.clientX - rect.left) / rect.width - 0.5);
+    y.set((touch.clientY - rect.top) / rect.height - 0.5);
+  };
+
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
+      onTouchMove={handleTouch}
+      onTouchEnd={() => { x.set(0); y.set(0); }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 900 }}
-      whileHover={{ scale: 1.03, boxShadow: "0 24px 48px rgba(108,99,255,0.25)" }}
+      whileHover={{ scale: 1.03, boxShadow: "0 24px 48px rgba(41,121,255,0.25)" }}
       transition={{ duration: 0.2 }}
       className="h-full"
     >
@@ -55,12 +65,12 @@ export default function ProjectCard({ project }) {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, rgba(108,99,255,0.25), rgba(0,212,255,0.15))" }}>
+              style={{ background: "linear-gradient(135deg, rgba(41,121,255,0.25), rgba(0,212,255,0.15))" }}>
               <motion.div
                 animate={{ rotateY: [0, 360] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               >
-                <FiBriefcase size={40} className="text-purple-400 opacity-60" />
+                <FiBriefcase size={40} className="text-blue-400 opacity-60" />
               </motion.div>
             </div>
           )}
@@ -100,9 +110,9 @@ export default function ProjectCard({ project }) {
               {project.live && (
                 <motion.a
                   href={project.live} target="_blank" rel="noopener noreferrer"
-                  whileHover={{ scale: 1.04, boxShadow: "0 8px 20px rgba(108,99,255,0.4)" }}
+                  whileHover={{ scale: 1.04, boxShadow: "0 8px 20px rgba(41,121,255,0.4)" }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-xs font-semibold"
+                  className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-sky-400 text-white text-xs font-semibold"
                 >
                   <FiExternalLink size={13} /> Live Demo
                 </motion.a>

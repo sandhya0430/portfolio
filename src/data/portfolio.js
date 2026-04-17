@@ -10,7 +10,7 @@ export const personal = {
   summary:
     "Full-Stack Developer with 3+ years of experience in React.js, building scalable dashboards and data-driven applications, with strong hands-on expertise in backend development, API integration, and end-to-end feature delivery. Currently developing AI-powered multi-agent systems using ADK to enable intelligent automation, while leveraging tools like Looker and Kibana to deliver real-time insights, improve reporting accuracy, and enhance overall user experience and operational efficiency.",
   email: "dhanpalsandhya7@gmail.com",
-  linkedin: "https://www.linkedin.com/in/sandhya",
+  linkedin: "https://www.linkedin.com/in/sandhya-dhanapal",
   github: "https://github.com/sandhya0430",
   phone: "+91 6379067235",
 };

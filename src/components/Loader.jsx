@@ -12,7 +12,7 @@ export default function Loader() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-          className="w-12 h-12 rounded-full border-2 border-transparent border-t-purple-500 border-r-cyan-400"
+          className="w-12 h-12 rounded-full border-2 border-transparent border-t-blue-500 border-r-sky-400"
         />
         <motion.p
           initial={{ opacity: 0 }}

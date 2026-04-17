@@ -7,9 +7,9 @@ const jobs = [
   {
     company: "SquareShift",
     role: "Software Developer",
-    period: "Jan 2024 – Present",
+    period: "Mar 2024 – Present",
     location: "Chennai, IN",
-    color: "from-purple-600 to-cyan-500",
+    color: "from-blue-500 to-pink-500",
     points: [
       "Built React.js dashboards for LLM cost & usage monitoring",
       "Real-time data viz with REST APIs & Elasticsearch",
@@ -24,7 +24,7 @@ const jobs = [
     role: "Software Developer",
     period: "Mar 2022 – May 2023",
     location: "Chennai, IN",
-    color: "from-pink-500 to-purple-600",
+    color: "from-pink-500 to-blue-500",
     points: [
       "Built production frontend for enterprise banking platform",
       "Responsive UI with HTML, CSS & Bootstrap",
@@ -47,7 +47,7 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-purple-500 text-sm font-semibold uppercase tracking-widest mb-2">Career</p>
+          <p className="text-blue-500 text-sm font-semibold uppercase tracking-widest mb-2">Career</p>
           <h2 className="text-3xl md:text-4xl font-bold t-heading">
             My Work <span className="gradient-text">Experience</span>
           </h2>
@@ -56,7 +56,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Center line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-600 to-cyan-500 -translate-x-1/2 hidden md:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-sky-400 -translate-x-1/2 hidden md:block" />
 
           <div className="space-y-16">
             {jobs.map((job, i) => {
@@ -68,10 +68,10 @@ export default function Experience() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.15 }}
-                  className="relative grid md:grid-cols-[1fr_auto_1fr] items-center gap-6"
+                  className="relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6"
                 >
-                  {/* LEFT slot */}
-                  <div className="flex justify-end">
+                  {/* LEFT slot — hidden on mobile */}
+                  <div className="hidden md:flex justify-end">
                     {isLeft ? (
                       <Card job={job} />
                     ) : (
@@ -79,20 +79,26 @@ export default function Experience() {
                     )}
                   </div>
 
-                  {/* Center dot */}
-                  <div className="flex justify-center z-10">
+                  {/* Center dot — hidden on mobile */}
+                  <div className="hidden md:flex justify-center z-10">
                     <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${job.color} flex items-center justify-center shadow-lg`}>
                       <FiBriefcase size={16} className="text-white" />
                     </div>
                   </div>
 
-                  {/* RIGHT slot */}
-                  <div className="flex justify-start">
+                  {/* RIGHT slot — hidden on mobile */}
+                  <div className="hidden md:flex justify-start">
                     {isLeft ? (
                       <Meta job={job} align="left" />
                     ) : (
                       <Card job={job} />
                     )}
+                  </div>
+
+                  {/* Mobile — always show card + meta stacked */}
+                  <div className="md:hidden flex flex-col gap-3">
+                    <Card job={job} />
+                    <Meta job={job} align="left" />
                   </div>
                 </motion.div>
               );
@@ -151,13 +157,13 @@ export default function Experience() {
 
 function Card({ job }) {
   return (
-    <div className={`bg-gradient-to-br ${job.color} rounded-2xl p-5 text-white shadow-lg w-full max-w-sm`}>
-      <p className="text-xs font-medium opacity-75 mb-0.5">{job.role}</p>
-      <h3 className="text-xl font-bold mb-3">{job.company}</h3>
+    <div className="glass rounded-2xl p-5 shadow-lg w-full max-w-sm border" style={{ borderColor: "rgba(41,121,255,0.2)" }}>
+      <p className="text-xs font-medium t-muted mb-0.5">{job.role}</p>
+      <h3 className="text-xl font-bold mb-3 t-heading">{job.company}</h3>
       <ul className="space-y-1.5">
         {job.points.map((pt, j) => (
-          <li key={j} className="flex items-start gap-2 text-xs opacity-90">
-            <span className="w-1 h-1 rounded-full bg-white mt-1.5 flex-shrink-0" />
+          <li key={j} className="flex items-start gap-2 text-xs t-sub">
+            <span className="w-1 h-1 rounded-full bg-blue-500 mt-1.5 flex-shrink-0" />
             {pt}
           </li>
         ))}

@@ -4,12 +4,13 @@ import { FiGithub, FiLinkedin, FiMail, FiHeart } from "react-icons/fi";
 import { personal } from "../data/portfolio";
 
 const socials = [
-  { icon: <FiGithub size={18} />,   href: personal.github,            label: "GitHub",   color: "#a78bfa" },
+  { icon: <FiGithub size={18} />,   href: personal.github,            label: "GitHub",   color: "#60a5fa" },
   { icon: <FiLinkedin size={18} />, href: personal.linkedin,          label: "LinkedIn", color: "#38bdf8" },
   { icon: <FiMail size={18} />,     href: `mailto:${personal.email}`, label: "Email",    color: "#f472b6" },
 ];
 
-export default function Footer({ setActive }) {
+export default function Footer({ setActive, hide }) {
+  if (hide) return null;
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
@@ -26,7 +27,7 @@ export default function Footer({ setActive }) {
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.1, 1] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-16 rounded-full blur-3xl"
-          style={{ background: "rgba(108,99,255,0.2)" }}
+          style={{ background: "rgba(41,121,255,0.2)" }}
         />
       </div>
 
@@ -37,7 +38,7 @@ export default function Footer({ setActive }) {
           animate={inView ? { scaleX: 1 } : {}}
           transition={{ duration: 0.8 }}
           className="h-px mb-6 origin-left"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(108,99,255,0.5), transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, rgba(41,121,255,0.5), transparent)" }}
         />
 
         {/* 3-column row */}

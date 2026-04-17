@@ -28,7 +28,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <p className="text-purple-500 text-sm font-semibold uppercase tracking-widest mb-2"></p>
+          <p className="text-blue-500 text-sm font-semibold uppercase tracking-widest mb-2"></p>
           <h2 className="text-3xl md:text-4xl font-bold t-heading">
             My Recent <span className="gradient-text">Works</span>
           </h2>
@@ -50,13 +50,13 @@ export default function Projects() {
               onClick={() => setActive(f)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                 active === f
-                  ? "bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg shadow-purple-500/20"
+                  ? "bg-gradient-to-r from-blue-600 to-sky-400 text-white shadow-lg shadow-blue-500/20"
                   : "glass nav-link hover:opacity-80"
               }`}
             >
               {f}
               <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${
-                active === f ? "bg-white/20 text-white" : "bg-purple-500/20 text-purple-400"
+                active === f ? "bg-white/20 text-white" : "bg-blue-500/20 text-blue-400"
               }`}>
                 {f === "All" ? projects.length : projects.filter(p => p.type === f.toLowerCase()).length}
               </span>
